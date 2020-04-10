@@ -1,0 +1,137 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block content %}
+  <div class="top-shadow"></div>
+
+  <div class="inner-page">
+    <div class="slider-item" style="background-image: url({{banner_image.image.url}});">
+      <div class="container">
+        <div class="row slider-text align-items-center justify-content-center">
+          <div class="col-lg-9 text-center col-sm-12 element-animate">
+            <h1 class="mb-4"><span>{{ category.heading }}</span></h1>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
+<!-- one -->
+  <div class="section">
+    <div class="container">
+        
+      <div class="row">
+          
+        <div class="col-md-8">
+              
+          <p><img src="{{category.image.url}}" alt="Image" class="img-fluid"></p>
+        </div>
+        
+        <div class="col-md-4">
+          
+          <h3 class="mb-4">{{category.heading}}</h3>
+          
+          <p>{{category.description}}</p>
+          
+          
+          
+        </div>
+        
+      
+      
+    </div>
+    
+  </div>
+  </div>
+
+  <!--////// two/////  -->
+
+  <!-- <div class="section">
+    <div class="container">
+        
+      <div class="row">
+          
+        <div class="col-md-8">
+              
+          <img src="{{category.1.image.url}}" alt="Image" class="img-fluid">
+        </div>
+        
+        <div class="col-md-4">
+          
+          <h3 class="mb-4">{{category.1.heading}}</h3>
+          
+          <p>{{category.1.description}}</p>
+          
+          
+          
+        </div>
+        
+      
+      
+    </div> 
+  
+  </div>
+  </div> -->
+
+
+
+<!--//////// three //////-->
+
+<!-- <div class="section">
+    <div class="container">
+        
+      <div class="row">
+          
+        <div class="col-md-8">
+              
+          <p><img src="{{category.2.image.url}}" alt="Image" class="img-fluid"></p>
+        </div>
+        
+        <div class="col-md-4">
+          
+          <h3 class="mb-4">{{category.2.heading}}</h3>
+          
+          <p>{{category.2.description}}</p>
+          
+          
+          
+        </div>
+        
+      
+      
+    </div>
+    
+   </div>
+  </div>  -->
+
+
+ <!--////four////  -->
+
+ <!-- <div class="section">
+    <div class="container">
+        
+      <div class="row">
+          
+        <div class="col-md-8">
+              
+          <p><img src="{{category.3.image.url}}" alt="Image" class="img-fluid"></p>
+        </div>
+        
+        <div class="col-md-4">
+          
+          <h3 class="mb-4">{{category.3.heading}}</h3>
+          
+          <p>{{category.3.description}}</p>
+          
+          
+          
+        </div>
+        
+      
+      
+    </div>
+    
+  </div>
+  </div> -->
+
+  {% endblock %}

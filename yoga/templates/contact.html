@@ -1,0 +1,119 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block content %}
+
+  <div class="top-shadow"></div>
+
+  <div class="inner-page">
+    <div class="slider-item" style="background-image: url({{banner_image.image.url}});">
+      <div class="container">
+        <div class="row slider-text align-items-center justify-content-center">
+          <div class="col-lg-9 text-center col-sm-12 element-animate">
+            <h1 class="mb-4"><span>Contact Us</span></h1>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 mb-5 order-2">
+          <form action="{% url 'contact' %}" method="post">
+            <div class="row">
+                {% csrf_token %}
+              <div class="col-md-6 form-group">
+                <label for="name">Name</label>
+                <input type="text" name="name" class="form-control ">
+              </div>
+              <div class="col-md-6 form-group">
+                <label for="phone">Phone</label>
+                <input name="phone"  class="form-control ">
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12 form-group">
+  
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12 form-group">
+                <label for="email">Email</label>
+                <input name="email" email="email" class="form-control ">
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12 form-group">
+                <label for="message">Write Message</label>
+                <textarea name="description" description="message" class="form-control " cols="30" rows="8"></textarea>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6 form-group">
+                <input type="submit" value="Send Message" class="btn btn-primary px-3 py-3">
+              </div>
+            </div>
+            {{ form.errors }}
+          </form>
+        </div>
+        <div class="col-md-6 order-2 mb-5">
+          <div class="row justify-content-right">
+            <div class="col-md-8 mx-auto contact-form-contact-info">
+              <p class="d-flex">
+                <span class="ion-ios-location icon mr-5"></span>
+                <span>{{our_information.address}}</span>
+              </p>
+  
+              <p class="d-flex">
+                <span class="ion-ios-telephone icon mr-5"></span>
+                <span>{{our_information.telephone}}</span>
+              </p>
+  
+              <p class="d-flex">
+                <span class="ion-android-mail icon mr-5"></span>
+                <span>{{our_information.email}}</span>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section bg-light block-11">
+    <div class="container">
+      <div class="row justify-content-center mb-5">
+        <div class="col-md-8 text-center">
+          <h2 class=" heading mb-4">Testimonial</h2>
+        </div>
+      </div>
+      <div class="nonloop-block-11 owl-carousel">
+        {% for item in testomonial %}
+          <div class="item">
+            <div class="block-33 h-100">
+                <div class="vcard d-flex mb-3">
+                  <div class="image align-self-center"><img src="{{item.image.url}}" alt="Person here"></div>
+                  <div class="name-text align-self-center">
+                    <h2 class="heading">{{item.name}}</h2>
+                    <span class="meta">{{item.posted_by}}</span>
+                  </div>
+                </div>
+                <div class="text">
+                  <blockquote>
+                    <p>&rdquo; {{item.description}} &ldquo;</p>
+                  </blockquote>
+                </div>
+              </div>
+          </div>
+            {% endfor %}
+
+  
+      </div>
+    </div>
+  </div>
+  <!-- END .block-4 -->
+  </div>
+
+  {% endblock %}

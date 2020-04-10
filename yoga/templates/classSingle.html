@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block content %}
+  <div class="top-shadow"></div>
+
+  <div class="inner-page">
+    <div class="slider-item" style="background-image: url({{banner_image.image.url}});">
+      <div class="container">
+        <div class="row slider-text align-items-center justify-content-center">
+          <div class="col-lg-9 text-center col-sm-12 element-animate">
+            <h1 class="mb-4"><span>HEALTH MIND MEDITATION</span></h1>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
+
+  <div class="section">
+    <div class="container">
+        
+      <div class="row">
+          
+        <div class="col-md-8">
+              
+          <p><img src="{{class_details.image.url}}" alt="Image" class="img-fluid"></p>
+        </div>
+        
+        <div class="col-md-4">
+          
+          <h3 class="mb-4">{{class_details.heading}}</h3>
+          <p class="text-uppercase">{{class_details.time}}</p>
+          <p>{{class_details.description|linebreaks}}</p>
+          
+          <p><a href="{% url 'contact' %}" class="btn btn-primary btn-sm px-3 py-2">Contact Us</a></p>
+          
+        </div>
+        
+      
+      
+    </div>
+    
+  </div>
+
+  <p></p>
+
+  <div class="section">
+    <div class="container">
+      <div class="row justify-content-center mb-5 element-animate">
+        <div class="col-md-8 text-center">
+          <h2 class="heading mb-4">Meet Our Trainers</h2>
+          <p class="mb-5 lead">{{trainer_details.description}}</p>
+        </div>
+      </div>
+      <div class="row">
+        {% for item in trainer %}
+        <div class="col-lg-4">
+          <div class="media d-block media-custom text-center">
+            <a href="#"><img src="{{item.image.url}}" alt="Image Placeholder" class="img-fluid"></a>
+            <div class="media-body">
+              <h3 class="mt-0 text-black">{{item.name}}</h3>
+            </div>
+          </div>
+        </div>
+        {% endfor %}        
+      </div>
+
+      </div>
+
+    </div>
+  </div>
+  {% endblock %}

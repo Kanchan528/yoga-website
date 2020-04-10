@@ -1,0 +1,96 @@
+
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block content %}
+  <div class="top-shadow"></div>
+
+  <div class="inner-page">
+  <div class="slider-item" style="background-image: url({{banner_image.image.url}});">
+    <div class="container">
+      <div class="row slider-text align-items-center justify-content-center">
+        <div class="col-lg-9 text-center col-sm-12 element-animate">
+          <h1 class="mb-4"><span>About Us</span></h1>
+          <div class="btn-play-wrap mx-auto">
+            <p class="mb-4"><a href="https://www.youtube.com/watch?v=_VnYSoMI-9Q" data-fancybox data-ratio="2" class="btn-play"><span
+                  class="ion ion-ios-play"></span></a></p>
+          </div>
+          <span>Watch Video</span>
+
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+
+  <div class="section bg-primary">
+      <div class="container">
+          
+        <div class="row">
+            {% for item in features %}
+          <div class="col-md-6 col-lg-4 element-animate ">
+            <div class="media block-6 d-block text-center">
+              <div class="icon mb-3"><span class="ion-{{item.icon_name}} text-white"></span></div>
+              <div class="media-body">
+                <h3 class="heading text-white">{{item.heading}}</h3>
+                <p class="text-white">{{item.description}}</p>
+              </div>
+            </div>
+          </div>
+            {% endfor %}
+              
+          
+        </div>
+      </div>
+    </div>
+    <!-- END section -->
+
+  <div>
+    <div class="half d-lg-flex d-block">
+      <div class="image element-animate" style="background-image: url({{about_us.0.image.url}})"></div>
+      <div class="text text-center element-animate">
+        <h3 class="mb-4">{{about_us.0.heading}}</h3>
+        <p class="mb-5">{{about_us.0.description}}</p>
+        
+      </div>
+    </div>
+  
+    <div class="half d-lg-flex d-block">
+      <div class="image order-2 element-animate" style="background-image: url({{about_us.1.image.url}})"></div>
+      <div class="text text-center element-animate">
+        <h3 class="mb-4">{{about_us.1.heading}}</h3>
+        <p class="mb-5">{{about_us.1.description}}</p>
+  
+        
+      </div>
+    </div>
+  
+  </div>
+
+  <div class="section">
+    <div class="container">
+      <div class="row justify-content-center mb-5 element-animate">
+        <div class="col-md-8 text-center">
+          <h2 class="heading mb-4">Meet Our Trainers</h2>
+          <p class="mb-5 lead">{{trainer_detail.description}}</p>
+        </div>
+      </div>
+      <div class="row">
+        {% for item in trainer %}
+        <div class="col-lg-4">
+          <div class="media d-block media-custom text-center">
+            <a href=""></a><img src="{{item.image.url}}" alt="Image Placeholder" class="img-fluid"></a>
+            <div class="media-body">
+              <h3 class="mt-0 text-black">{{item.name}}</h3>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+        </div>
+        
+      </div>
+  
+    </div>
+  </div>
+  <!-- END section -->
+  
+  {% endblock %}

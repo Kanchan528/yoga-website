@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block content %}
+  <div class="top-shadow"></div>
+
+  <div class="inner-page">
+    <div class="slider-item" style="background-image: url({{banner_image.image.url}});">
+      <div class="container">
+        <div class="row slider-text align-items-center justify-content-center">
+          <div class="col-lg-9 text-center col-sm-12 element-animate">
+            <h1 class="mb-4"><span>Our Blog</span></h1>
+            <div class="btn-play-wrap mx-auto">
+              <p class="mb-4"><a href="https://www.youtube.com/watch?v=_VnYSoMI-9Q" data-fancybox data-ratio="2"
+                  class="btn-play"><span class="ion ion-ios-play"></span></a></p>
+            </div>
+            <span>Watch Video</span>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div>
+    {% for item in blog_single %}
+    {{ forloop.counter }}
+
+    <div class="half d-md-flex d-block">
+      {% if forloop.counter|divisibleby:2%}
+      <div class="image" style="background-image: url({{item.image.url}})"></div>
+      {%else%}
+      <div class="image order-2" style="background-image: url({{item.image.url}})"></div>
+      {% endif %}
+      <div class="text text-center element-animate">
+        <span class="post-meta">{{item.date}}</span>
+        <h3 class="mb-4">{{item.heading}}</h3>
+        <p class="mb-5">{{item.description|linebreaks|truncatechars:200}}</p>
+        <p><a href="{% url 'single' item.pk %}" class="btn btn-primary btn-sm px-3 py-2">Continue Reading</a></p>
+      </div>
+    </div>
+    {% endfor%}
+    
+    <div class="col-md-12 py-5 text-center bg-light">
+      <a href="#" class="btn btn-primary">Load More Posts...</a>
+    </div>
+  </div>
+  {% endblock %}
